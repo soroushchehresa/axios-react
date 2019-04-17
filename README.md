@@ -1,4 +1,4 @@
-# React Universal Xhr
+# React Universal XHR
 
 Universal HTTP client React component for creating XHR requests based on [Axios](https://github.com/axios/axios).
 

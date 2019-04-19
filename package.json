@@ -1,17 +1,17 @@
 {
-  "name": "react-universal-xhr",
-  "version": "1.0.5",
-  "description": "HTTP client React.js component",
+  "name": "axios-react",
+  "version": "1.0.2",
+  "description": "HTTP client component for React",
   "main": "./dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soroushchehresa/react-universal-xhr.git"
+    "url": "git+https://github.com/soroushchehresa/axios-react.git"
   },
   "author": "Soroush Chehresa",
   "bugs": {
-    "url": "https://github.com/soroushchehresa/react-universal-xhr/issues"
+    "url": "https://github.com/soroushchehresa/axios-react/issues"
   },
-  "homepage": "https://github.com/soroushchehresa/react-universal-xhr#readme",
+  "homepage": "https://github.com/soroushchehresa/axios-react#readme",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.config.babel.js",

@@ -1,18 +1,16 @@
-# React Universal XHR
+# Axios React
 
-Universal HTTP client React component for creating XHR requests based on [Axios](https://github.com/axios/axios).
+HTTP client Component for React with child function callback to creating async requests in render based on [Axios](https://github.com/axios/axios).
 
 
 **[Online Playground](https://codesandbox.io/s/888j39z688)**
-
-**[Online Demo](https://888j39z688.codesandbox.io/)**
 
 
 ## Usage:
 
 ```
 import React from 'react';
-import Request from "react-universal-xhr";
+import Request from "axios-react";
 
 const Demo = () => (
   <Request

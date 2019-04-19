@@ -9,7 +9,7 @@ HTTP client Component for React with child function callback to creating async r
 ## Usage:
 
 ```
-import React from 'react';
+import React, { Fragment } from 'react';
 import Request from "axios-react";
 
 const Demo = () => (

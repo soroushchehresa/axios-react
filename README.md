@@ -1,6 +1,6 @@
 # Axios React
 
-HTTP client Component for React with child function callback to creating async requests in render based on [Axios](https://github.com/axios/axios).
+HTTP client component for React with child function callback to creating async requests in render based on [Axios](https://github.com/axios/axios).
 
 
 **[Online Playground](https://codesandbox.io/s/888j39z688)**

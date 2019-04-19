@@ -43,6 +43,6 @@ You can pass `skip` prop to `Request` component for stop sending request on moun
 These are the available config options for making requests. Only the URL is required. Requests will default to get if the method is not specified. You can use all of the [Axios request config options](https://github.com/axios/axios#request-config)
 
 
-## Response Schema
+## Response Schema:
 
 The response for a request contains the [Axios response schema](https://github.com/axios/axios#response-schema).

@@ -1,6 +1,6 @@
 {
   "name": "axios-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "HTTP client component for React",
   "main": "./dist/index.js",
   "repository": {

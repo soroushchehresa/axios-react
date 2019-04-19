@@ -14,7 +14,7 @@ export default ({ children, skip }) => {
     if (!skip) {
       this.fetch();
     }
-  });
+  }, []);
 
   const checkNetworkConnection = () => {
     root.addEventListener('offline', () => {

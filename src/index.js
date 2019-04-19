@@ -1,3 +1,3 @@
-import ReactUniversalXHR from './ReactUniversalXHR';
+import AxiosReact from './component';
 
-export default ReactUniversalXHR;
+export default AxiosReact;

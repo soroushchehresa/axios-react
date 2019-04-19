@@ -1,35 +1,27 @@
-/* eslint-disable */
-
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import isOnline from 'is-online';
 import axios from 'axios';
 import root from 'window-or-global';
 
-export default class ReactUniversalXHR extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      error: null,
-      response: null,
-      networkStatus: null,
-    };
-  }
+export default ({ children, skip }) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [response, setResponse] = useState(null);
+  const [networkStatus, setNetworkStatus] = useState(null);
 
-  componentWillMount() {
-    const { skip } = this.props;
-    this.checkNetworkConnection();
+  useEffect(() => {
+    checkNetworkConnection();
     if (!skip) {
       this.fetch();
     }
-  }
+  });
 
-  checkNetworkConnection = () => {
+  const checkNetworkConnection = () => {
     root.addEventListener('offline', () => {
       isOnline({ timeout: 1000 })
         .then(online => {
           if (!online) {
-            this.setState({ networkStatus: 'offline' });
+            setNetworkStatus('offline');
           }
         });
     });
@@ -37,42 +29,41 @@ export default class ReactUniversalXHR extends Component {
       isOnline({ timeout: 1000 })
         .then(online => {
           if (online) {
-            this.setState({ networkStatus: 'online' });
+            setNetworkStatus('online');
           }
         });
     });
     isOnline({ timeout: 1000 })
       .then(online => {
         if ((online && this.state.networkStatus !== 'online') || (!online && this.state.networkStatus !== 'offline')) {
-          this.setState({ networkStatus: online ? 'online' : 'offline' });
+          setNetworkStatus(online ? 'online' : 'offline');
         }
       });
   };
 
-  fetch = () => {
+  const fetch = () => {
     const { config } = this.props;
     if (config) {
-      this.setState({ loading: true });
+      setLoading(true);
       axios(config)
         .then((response) => {
           this.setState({ response, loading: false });
+          setResponse(response);
+          setLoading(false);
         })
         .catch((error) => {
           this.setState({ error: error, loading: false });
+          setError(error);
+          setLoading(false);
         });
     }
   };
 
-  render() {
-    const { fetch } = this;
-    const { children } = this.props;
-    const { loading, error, response, networkStatus } = this.state;
-    return children({
-      loading,
-      error,
-      response,
-      refetch: fetch,
-      networkStatus,
-    });
-  }
+  return children({
+    loading,
+    error,
+    response,
+    refetch: fetch,
+    networkStatus,
+  });
 }

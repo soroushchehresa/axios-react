@@ -45,8 +45,6 @@ const Demo = () => (
 )
 ```
 
-**Note:**
-
 You can pass `skip` prop to `Request` component for stop sending request on mounting.
 
 

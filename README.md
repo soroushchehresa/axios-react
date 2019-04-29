@@ -45,7 +45,7 @@ const Demo = () => (
 )
 ```
 
-You can pass `skip` prop to `Request` component for stop sending request on mounting.
+You can pass `skip` prop to `Request` component for disable sending request on mounting and you can fetch data every time with `refetch` method.
 
 
 ## Request Config:

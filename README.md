@@ -22,7 +22,7 @@ const Demo = () => (
       method: 'get',
       url: 'https://jsonplaceholder.typicode.com/todos/1',
     }}
-    skip={false} // optional
+    skip={false} // optional - default is false
   >
     {({ loading, response, error, refetch, networkStatus }) => (
       <Fragment>
@@ -37,8 +37,7 @@ const Demo = () => (
 )
 ```
 
-You can pass `skip` prop to `Request` component for disable sending the request on mounting and you can fetch data with `refetch` method every time.
-
+You can use the `skip` to disable send the request on the mounting and you can fetch data using the `refetch` method every time.
 
 ## Request Config:
 These are the available config options for making requests. Only the URL is required. Requests will default to get if the method is not specified. You can use all of the [Axios request config options](https://github.com/axios/axios#request-config)

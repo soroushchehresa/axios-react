@@ -12,7 +12,7 @@ HTTP client component for React with child function callback to creating async r
 
 ## Usage:
 
-```
+```jsx
 import React, { Fragment } from 'react';
 import Request from 'axios-react';
 
@@ -34,7 +34,7 @@ const Demo = () => (
       </Fragment>
     )}
   </Request>
-)
+);
 ```
 
 You can use the `skip` to disable send the request on the mounting and you can fetch data using the `refetch` method every time.

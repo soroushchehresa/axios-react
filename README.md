@@ -6,9 +6,18 @@
 HTTP client component for React with child function callback to creating async requests in render based on [Axios](https://github.com/axios/axios).
 
 
-## Live Example:
-**[Online Playground](https://codesandbox.io/s/888j39z688)**
+## Installation:
+Yarn:
+```bash
+$ yarn add axios-react
+```
+npm:
+```bash
+$ npm i -S axios-react
+```
 
+## Live example:
+**[Online Playground](https://codesandbox.io/s/888j39z688)**
 
 ## Usage:
 
@@ -39,11 +48,11 @@ const Demo = () => (
 
 You can use the `skip` to disable send the request on the component mounting and you can resend the request using the `refetch` method every time.
 
-## Request Config:
+## Request config:
 These are the available config options for making requests. Only the URL is required. Requests will default to get if the method is not specified. You can use all of the [Axios request config options](https://github.com/axios/axios#request-config)
 
 
-## Response Schema:
+## Response schema:
 The response for a request contains the [Axios response schema](https://github.com/axios/axios#response-schema).
 
 

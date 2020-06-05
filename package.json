@@ -41,9 +41,7 @@
     "jest-cli": "^23.6.0",
     "node-sass": "^4.7.2",
     "prop-types": "^15.6.0",
-    "react": "^16.6.0",
     "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^16.6.0",
     "react-hot-loader": "next",
     "react-test-renderer": "^16.0.0",
     "regenerator-runtime": "^0.12.1",
@@ -63,6 +61,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "is-online": "^8.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "window-or-global": "^1.0.1"
   }
 }

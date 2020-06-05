@@ -1,6 +1,6 @@
 {
   "name": "axios-react",
-  "version": "1.1.4",
+  "version": "1.1.7",
   "description": "HTTP client component for React",
   "main": "./dist/index.js",
   "repository": {
@@ -52,17 +52,36 @@
     "webpack-dev-server": "^3.1.4"
   },
   "peerDependencies": {
-    "react": ">= 16.3.0",
-    "react-dom": ">= 16.3.0"
+    "react": ">= 16.13.1",
+    "react-dom": ">= 16.13.1",
+    "axios": "^0.19.2",
+    "window-or-global": "^1.0.1",
+    "is-online": "^8.2.0"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.2",
     "is-online": "^8.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "window-or-global": "^1.0.1"
-  }
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-native-axios",
+    "axios",
+    "axios-react",
+    "axios-react-native",
+    "react-axios",
+    "react-fetch",
+    "react-xhr",
+    "fetch",
+    "xhr",
+    "request",
+    "react-request",
+    "react-native-request"
+  ]
 }

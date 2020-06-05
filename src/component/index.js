@@ -1,7 +1,19 @@
 import { useState, useEffect } from 'react';
-import isOnline from 'is-online';
 import axios from 'axios';
-import root from 'window-or-global';
+
+let root = null;
+let isOnline = null;
+
+if (typeof document != 'undefined') {
+  import('window-or-global')
+    .then((module) => {
+      root = module;
+    });
+  import('is-online')
+    .then((module) => {
+      isOnline = module;
+    });
+}
 
 export default ({ children, skip }) => {
   const [loading, setLoading] = useState(false);
@@ -17,28 +29,30 @@ export default ({ children, skip }) => {
   }, []);
 
   const checkNetworkConnection = () => {
-    root.addEventListener('offline', () => {
-      isOnline({ timeout: 1000 })
-        .then(online => {
-          if (!online) {
-            setNetworkStatus('offline');
-          }
-        });
-    });
-    root.addEventListener('online', () => {
-      isOnline({ timeout: 1000 })
-        .then(online => {
-          if (online) {
-            setNetworkStatus('online');
-          }
-        });
-    });
-    isOnline({ timeout: 1000 })
-      .then(online => {
-        if ((online && this.state.networkStatus !== 'online') || (!online && this.state.networkStatus !== 'offline')) {
-          setNetworkStatus(online ? 'online' : 'offline');
-        }
+    if ((typeof document != 'undefined') && root && isOnline) {
+      root.addEventListener('offline', () => {
+        isOnline({ timeout: 1000 })
+          .then(online => {
+            if (!online) {
+              setNetworkStatus('offline');
+            }
+          });
       });
+      root.addEventListener('online', () => {
+        isOnline({ timeout: 1000 })
+          .then(online => {
+            if (online) {
+              setNetworkStatus('online');
+            }
+          });
+      });
+      isOnline({ timeout: 1000 })
+        .then(online => {
+          if ((online && this.state.networkStatus !== 'online') || (!online && this.state.networkStatus !== 'offline')) {
+            setNetworkStatus(online ? 'online' : 'offline');
+          }
+        });
+    }
   };
 
   const fetch = () => {

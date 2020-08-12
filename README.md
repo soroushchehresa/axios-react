@@ -55,17 +55,25 @@ const Demo = () => (
 );
 ```
 
-You can use the `skip` to disable send the request on the component mounting and you can resend the request using the `refetch` method every time.
+<br>
+
+## Arguments
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| loading | boolean | Request loading. |
+| response | object | The response for a request contains the[Axios response schema](https://github.com/axios/axios#response-schema). |
+| error | object | The error for a request. |
+| refetch | function | Refetch method for a request. |
+| networkStatus | string | Network Connection Status. |
 
 <br>
 
-## Request config:
-These are the available config options for making requests. Only the URL is required. Requests will default to get if the method is not specified. You can use all of the [Axios request config options](https://github.com/axios/axios#request-config)
+## Props
 
-<br>
-
-## Response schema:
-The response for a request contains the [Axios response schema](https://github.com/axios/axios#response-schema).
+| Name | Type | Default value | Options | Description |
+| ---- | ---- |------ | ------------- | ----------- |
+| config | object | None | [Axios request config options](https://github.com/axios/axios#request-config) | Config options for making requests. |
+| skip | boolean | false | true or false | Disable send a request on the component mount. |
 
 <br>
 

@@ -9,7 +9,6 @@ HTTP client component for React with child function callback to creating async r
 </div>
 
 <br>
-<br>
 
 ## Installation:
 Yarn:

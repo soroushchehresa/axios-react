@@ -1,10 +1,15 @@
+<div align="center">
+  
 # Axios React
 [![NPM](https://img.shields.io/npm/v/axios-react.svg)](https://www.npmjs.com/package/axios-react)
 ![npm](https://img.shields.io/npm/dt/axios-react)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 HTTP client component for React with child function callback to creating async requests in render based on [Axios](https://github.com/axios/axios).
+</div>
 
+<br>
+<br>
 
 ## Installation:
 Yarn:
@@ -16,8 +21,12 @@ npm:
 $ npm i -S axios-react
 ```
 
+<br>
+
 ## Live example:
 **[Online Playground](https://stackblitz.com/edit/react-2et9ls)**
+
+<br>
 
 ## Usage:
 
@@ -48,13 +57,17 @@ const Demo = () => (
 
 You can use the `skip` to disable send the request on the component mounting and you can resend the request using the `refetch` method every time.
 
+<br>
+
 ## Request config:
 These are the available config options for making requests. Only the URL is required. Requests will default to get if the method is not specified. You can use all of the [Axios request config options](https://github.com/axios/axios#request-config)
 
+<br>
 
 ## Response schema:
 The response for a request contains the [Axios response schema](https://github.com/axios/axios#response-schema).
 
+<br>
 
 ## Support:
 <a href="https://www.patreon.com/soroushchehresa">

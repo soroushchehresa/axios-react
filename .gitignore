@@ -1,15 +1,3 @@
 node_modules
-dist/*.js
-examples/dist/*.js
-coverage
-
+dist
 .idea
-
-# lock files
-package-lock.json
-yarn.lock
-
-# others
-.DS_Store
-yarn-error.log
-examples

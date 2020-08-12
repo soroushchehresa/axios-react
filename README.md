@@ -17,7 +17,7 @@ $ npm i -S axios-react
 ```
 
 ## Live example:
-**[Online Playground](https://codesandbox.io/s/888j39z688)**
+**[Online Playground](https://stackblitz.com/edit/react-2et9ls)**
 
 ## Usage:
 

@@ -1,34 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactChildren, ReactChild } from 'react';
 import axios from 'axios';
+import isOnline from 'is-online';
+// @ts-ignore
+import root from 'window-or-global';
 
-let root = null;
-let isOnline = null;
-
-if (typeof document != 'undefined') {
-  import('window-or-global')
-    .then((module) => {
-      root = module;
-    });
-  import('is-online')
-    .then((module) => {
-      isOnline = module;
-    });
+interface Props {
+  children: ReactChild | ReactChildren;
+  skip: boolean,
+  config: object,
 }
 
-export default ({ children, skip }) => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [response, setResponse] = useState(null);
-  const [networkStatus, setNetworkStatus] = useState(null);
+export default (
+  {
+    children,
+    skip,
+    config,
+  }: Props,
+) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<object | null>(null);
+  const [response, setResponse] = useState<object | null>(null);
+  const [networkStatus, setNetworkStatus] = useState<string | null>(null);
 
-  useEffect(() => {
+  useEffect((): void => {
     checkNetworkConnection();
     if (!skip) {
-      this.fetch();
+      fetch();
     }
   }, []);
 
-  const checkNetworkConnection = () => {
+  const checkNetworkConnection = (): void => {
     if ((typeof document != 'undefined') && root && isOnline) {
       root.addEventListener('offline', () => {
         isOnline({ timeout: 1000 })
@@ -48,36 +49,28 @@ export default ({ children, skip }) => {
       });
       isOnline({ timeout: 1000 })
         .then(online => {
-          if ((online && this.state.networkStatus !== 'online') || (!online && this.state.networkStatus !== 'offline')) {
+          if ((online && networkStatus !== 'online') || (!online && networkStatus !== 'offline')) {
             setNetworkStatus(online ? 'online' : 'offline');
           }
         });
     }
   };
 
-  const fetch = () => {
-    const { config } = this.props;
+  const fetch = (): void => {
     if (config) {
       setLoading(true);
       axios(config)
         .then((response) => {
-          this.setState({ response, loading: false });
           setResponse(response);
           setLoading(false);
         })
         .catch((error) => {
-          this.setState({ error: error, loading: false });
           setError(error);
           setLoading(false);
         });
     }
   };
 
-  return children({
-    loading,
-    error,
-    response,
-    refetch: fetch,
-    networkStatus,
-  });
-}
+  // @ts-ignore
+  return children({ loading, error, response, refetch: fetch, networkStatus });
+};

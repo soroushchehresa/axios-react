@@ -61,7 +61,7 @@ const Demo = () => (
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | loading | boolean | Request loading. |
-| response | object | The response for a request contains the[Axios response schema](https://github.com/axios/axios#response-schema). |
+| response | object | The response for a request contains the [Axios response schema](https://github.com/axios/axios#response-schema). |
 | error | object | The error for a request. |
 | refetch | function | Refetch method for a request. |
 | networkStatus | string | Network Connection Status. |

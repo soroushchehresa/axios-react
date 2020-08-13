@@ -4,7 +4,10 @@
   "description": "HTTP client component for React",
   "author": "soroushchehresa",
   "license": "MIT",
-  "repository": "soroushchehresa/axios-react",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soroushchehresa/axios-react.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -61,5 +64,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@soroushchehresa"
+  }
 }

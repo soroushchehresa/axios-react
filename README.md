@@ -30,7 +30,7 @@ $ npm i -S axios-react
 ## Usage:
 
 ```jsx
-import React, { Fragment } from 'react';
+import React from 'react';
 import Request from 'axios-react';
 
 const Demo = () => (
@@ -39,16 +39,15 @@ const Demo = () => (
       method: 'get',
       url: 'https://jsonplaceholder.typicode.com/todos/1',
     }}
-    skip={false} // optional - default is false
   >
     {({ loading, response, error, refetch, networkStatus }) => (
-      <Fragment>
+      <div>
           {networkStatus && <span>{networkStatus}</span>}
           {loading && <span>Loading...</span>}
           {error && <span>{error.response.data}</span>}
           {response && <h3>{response.data.title}</h3>}
           <button onClick={refetch}>Refetch!</button>
-      </Fragment>
+      </div>
     )}
   </Request>
 );

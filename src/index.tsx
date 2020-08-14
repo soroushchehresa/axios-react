@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactChildren, ReactChild } from 'react';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import isOnline from 'is-online';
 // @ts-ignore
 import root from 'window-or-global';
@@ -7,7 +7,7 @@ import root from 'window-or-global';
 interface Props {
   children: ReactChild | ReactChildren;
   skip: boolean,
-  config: object,
+  config: AxiosRequestConfig,
 }
 
 export default (

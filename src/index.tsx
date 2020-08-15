@@ -18,8 +18,8 @@ export default (
   }: Props,
 ) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<AxiosError<any>>(null);
-  const [response, setResponse] = useState<AxiosResponse<any>>(null);
+  const [error, setError] = useState<AxiosError<any> | null>(null);
+  const [response, setResponse] = useState<AxiosResponse<any> | null>(null);
   const [networkStatus, setNetworkStatus] = useState<string | null>(null);
 
   useEffect((): void => {

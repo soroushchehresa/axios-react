@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactChildren, ReactChild } from 'react';
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 import isOnline from 'is-online';
 // @ts-ignore
 import root from 'window-or-global';
@@ -18,8 +18,8 @@ export default (
   }: Props,
 ) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<object | null>(null);
-  const [response, setResponse] = useState<object | null>(null);
+  const [error, setError] = useState<AxiosError<any>>(null);
+  const [response, setResponse] = useState<AxiosResponse<any>>(null);
   const [networkStatus, setNetworkStatus] = useState<string | null>(null);
 
   useEffect((): void => {
@@ -60,11 +60,11 @@ export default (
     if (config) {
       setLoading(true);
       axios(config)
-        .then((response) => {
+        .then((response: AxiosResponse<any>) => {
           setResponse(response);
           setLoading(false);
         })
-        .catch((error) => {
+        .catch((error: AxiosError<any>) => {
           setError(error);
           setLoading(false);
         });

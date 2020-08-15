@@ -10,24 +10,33 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
+      - name: NPM install
+        run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+          
+      - uses: actions/setup-node@master
         with:
           node-version: 12
           registry-url: 'https://registry.npmjs.org/'
       - name: Publish to NPMJS
         run: |
-          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm config set scope "<@OWNER>"
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm config set scope "@soroush_chs"
           npm config list
           npm install
           npm publish --access public 
         env:
-          CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
       - uses: actions/setup-node@master
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: '<@OWNER>'
+          scope: '@soroushchehresa'
       - name: Publish to GitHub Package Registry
         run: |
           npm install

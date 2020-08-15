@@ -45,12 +45,12 @@ jobs:
 
 
       # Publish to GitHub Package Registry
-      - uses: actions/setup-node@master
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: '@soroushchehresa'
-      - name: Publish to GitHub Package Registry
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{github.token}}
+#       - uses: actions/setup-node@master
+#         with:
+#           node-version: 12
+#           registry-url: https://npm.pkg.github.com/
+#           scope: '@soroushchehresa'
+#       - name: Publish to GitHub Package Registry
+#         run: npm publish
+#         env:
+#           NODE_AUTH_TOKEN: ${{github.token}}

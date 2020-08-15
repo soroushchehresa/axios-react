@@ -12,14 +12,6 @@ jobs:
       - uses: actions/checkout@master
 
 
-      # Update package version and set up git
-      - uses: actions/setup-node@master
-      - name: Update package version and setup git
-        run: |
-          git config user.name "Actions User"
-          git config user.email noreply@github.com
-
-
       # Install npm dependencies
       - name: npm install
         run: npm install
@@ -35,21 +27,8 @@ jobs:
       - name: Publish to NPMJS
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm config set scope "@soroushchehresa"
-          npm config list
+          npm config set scope "@soroush_chs"
           npm publish --access public 
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-
-      # Publish to GitHub Package Registry
-#       - uses: actions/setup-node@master
-#         with:
-#           node-version: 12
-#           registry-url: https://npm.pkg.github.com/
-#           scope: '@soroushchehresa'
-#       - name: Publish to GitHub Package Registry
-#         run: npm publish
-#         env:
-#           NODE_AUTH_TOKEN: ${{github.token}}

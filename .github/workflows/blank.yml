@@ -12,9 +12,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - run: echo "registry=https://registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}/ \n @soroushchehresa:npm.pkg.github.com/:_authToken=${secrets.GH_TOKEN}" > ~/.npmrc
       - run: npm install
       - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

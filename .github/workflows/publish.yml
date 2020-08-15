@@ -9,23 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
-
-
-      # Install npm dependencies
-      - name: npm install
-        run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{github.token}}
-          
-          
-      # Publish to GitHub Package Registry
-      - uses: actions/setup-node@master
+      - uses: actions/checkout@master 
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v1
         with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/@soroushchehresa
+          node-version: '12.x'
+          registry-url: 'https://npm.pkg.github.com'
           scope: '@soroushchehresa'
-      - name: Publish to GitHub Package Registry
-        run: npm publish
+      - run: npm install
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{github.token}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

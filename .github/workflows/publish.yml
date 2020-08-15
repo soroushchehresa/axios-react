@@ -10,13 +10,17 @@ jobs:
     steps:
       # Checkout the repo
       - uses: actions/checkout@master 
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v1
+      # Publish to NPMJS
+      - uses: actions/setup-node@master
         with:
-          node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@soroushchehresa'
-      - run: npm install
-      - run: npm publish --access public 
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org/'
+      - name: Publish to NPMJS
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          npm config set scope "@soroush_chs"
+          npm install
+          npm publish --access public 
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: true
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

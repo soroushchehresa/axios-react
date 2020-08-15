@@ -8,38 +8,49 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Checkout the repo
       - uses: actions/checkout@master
+
+
+      # Update package version and set up git
       - uses: actions/setup-node@master
-      - name: NPM install
+      - name: Update package version and setup git
+        run: |
+          git config user.name "Actions User"
+          git config user.email noreply@github.com
+          npm version 1.0.$(date +%s)
+
+
+      # Install npm dependencies
+      - name: npm install
         run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{github.token}}
           
           
+      # Publish to NPMJS
       - uses: actions/setup-node@master
         with:
           node-version: 12
           registry-url: 'https://registry.npmjs.org/'
       - name: Publish to NPMJS
         run: |
-          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          npm config set scope "@soroush_chs"
+          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          npm config set scope "@soroushchehresa"
           npm config list
-          npm install
           npm publish --access public 
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CI: true
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
 
+      # Publish to GitHub Package Registry
       - uses: actions/setup-node@master
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@soroushchehresa'
       - name: Publish to GitHub Package Registry
-        run: |
-          npm install
-          npm publish
+        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{github.token}}

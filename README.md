@@ -2,7 +2,7 @@
   
 # Axios React
 [![NPM](https://img.shields.io/npm/v/axios-react.svg)](https://www.npmjs.com/package/axios-react)
-![npm](https://img.shields.io/npm/dt/axios-react)
+[![NPM](https://img.shields.io/npm/dt/axios-react)](https://www.npmjs.com/package/axios-react)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 HTTP client component for React with child function callback to create async requests in render based on [Axios](https://github.com/axios/axios).

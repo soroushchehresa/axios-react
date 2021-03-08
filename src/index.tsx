@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactChildren, ReactChild } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 import isOnline from 'is-online';
 // @ts-ignore
@@ -13,12 +13,12 @@ interface ChildrenProps {
 }
 
 interface Props {
-  children: (props: ChildrenProps) => ReactChild | ReactChild[] | ReactChildren | ReactChildren[] | JSX.Element | JSX.Element[];
-  skip: boolean,
+  children: ((props: ChildrenProps) => ReactNode) | ReactNode;
+  skip?: boolean,
   config: AxiosRequestConfig,
 }
 
-export default ({ children, skip, config }: Props) => {
+export default ({ children, skip = false, config }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<AxiosError<any> | null>(null);
   const [response, setResponse] = useState<AxiosResponse<any> | null>(null);
@@ -73,5 +73,6 @@ export default ({ children, skip, config }: Props) => {
     }
   };
 
-  return children({ loading, error, response, refetch: fetch, networkStatus }) as JSX.Element | JSX.Element[];
+  // @ts-ignore
+  return children({ loading, error, response, refetch: fetch, networkStatus });
 };

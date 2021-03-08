@@ -72,5 +72,5 @@ export default (
   };
 
   // @ts-ignore
-  return children({ loading, error, response, refetch: fetch, networkStatus }) as ;
+  return children({ loading, error, response, refetch: fetch, networkStatus });
 };

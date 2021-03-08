@@ -73,5 +73,5 @@ export default ({ children, skip, config }: Props) => {
     }
   };
 
-  return children({ loading, error, response, refetch: fetch, networkStatus }) as JSX.Element;
+  return children({ loading, error, response, refetch: fetch, networkStatus }) as JSX.Element | JSX.Element[];
 };

@@ -4,8 +4,16 @@ import isOnline from 'is-online';
 // @ts-ignore
 import root from 'window-or-global';
 
+interface ChildrenProps {
+  loading: boolean,
+  error: AxiosError<any> | null,
+  response: AxiosResponse<any> | null,
+  refetch: () => void,
+  networkStatus: string | null;
+}
+
 interface Props {
-  children: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
+  children: (props: ChildrenProps) => ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
   skip: boolean,
   config: AxiosRequestConfig,
 }
@@ -65,6 +73,5 @@ export default ({ children, skip, config }: Props) => {
     }
   };
 
-  // @ts-ignore
-  return children({ loading, error, response, refetch: fetch, networkStatus });
+  return children({ loading, error, response, refetch: fetch, networkStatus }) as JSX.Element;
 };

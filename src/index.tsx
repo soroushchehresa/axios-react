@@ -5,18 +5,12 @@ import isOnline from 'is-online';
 import root from 'window-or-global';
 
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
   skip: boolean,
   config: AxiosRequestConfig,
 }
 
-export default (
-  {
-    children,
-    skip,
-    config,
-  }: Props,
-) => {
+export default ({ children, skip, config }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<AxiosError<any> | null>(null);
   const [response, setResponse] = useState<AxiosResponse<any> | null>(null);

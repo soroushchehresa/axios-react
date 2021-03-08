@@ -5,7 +5,7 @@ import isOnline from 'is-online';
 import root from 'window-or-global';
 
 interface Props {
-  children: ReactChild | ReactChildren;
+  children: JSX.Element | JSX.Element[];
   skip: boolean,
   config: AxiosRequestConfig,
 }
@@ -72,5 +72,5 @@ export default (
   };
 
   // @ts-ignore
-  return children({ loading, error, response, refetch: fetch, networkStatus });
+  return children({ loading, error, response, refetch: fetch, networkStatus }) as ;
 };

@@ -13,7 +13,7 @@ interface ChildrenProps {
 }
 
 interface Props {
-  children: (props: ChildrenProps) => ReactChild | ReactChild[] | ReactChildren | ReactChildren[];
+  children: (props: ChildrenProps) => ReactChild | ReactChild[] | ReactChildren | ReactChildren[] | JSX.Element | JSX.Element[];
   skip: boolean,
   config: AxiosRequestConfig,
 }

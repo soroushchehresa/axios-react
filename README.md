@@ -71,7 +71,7 @@ const Demo = () => (
 | Name | Type | Default value | Options | Description |
 | ---- | ---- |------ | ------------- | ----------- |
 | config | object | None | [Axios request config options](https://github.com/axios/axios#request-config) | Config options for making requests. |
-| skip | boolean | false | true or false | Disable send a request on the component mount. |
+| skip | boolean | false | true or false | Disable sending requests when mounting the component. |
 
 <br>
 

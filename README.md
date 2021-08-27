@@ -10,7 +10,7 @@ HTTP client component for React with child function callback to create async req
 
 <br>
 
-## Installation:
+## Installation
 Yarn:
 ```bash
 $ yarn add axios-react
@@ -22,12 +22,12 @@ $ npm i -S axios-react
 
 <br>
 
-## Live example:
+## Live example
 **[Online Playground](https://stackblitz.com/edit/react-2et9ls)**
 
 <br>
 
-## Usage:
+## Usage
 
 ```jsx
 import React from 'react';
@@ -75,12 +75,12 @@ const Demo = () => (
 
 <br>
 
-## Related links
+## Read more
 - [The easiest way to create HTTP requests in React.js](https://medium.com/@soroushchehresa/the-easiest-way-to-create-http-requests-in-react-js-6fa4b1819b3c)
 
 <br>
 
-## Support:
+## Support
 <a href="https://www.patreon.com/soroushchehresa">
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>

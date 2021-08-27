@@ -1,7 +1,7 @@
-import ExampleComponent from './'
+import Request from './index'
 
-describe('ExampleComponent', () => {
-  it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+describe('<Request />', () => {
+  it('should render without any error', () => {
+    expect(Request).toBeTruthy()
   })
 });
